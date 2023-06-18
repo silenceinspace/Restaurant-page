@@ -1,0 +1,2 @@
+#Do not sync the directory with git
+node_modules
