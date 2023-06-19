@@ -1,1 +1,4 @@
-console.log("Hello world!");
+import { renderTopSection, renderMiddleSection } from "./initial-page";
+
+renderTopSection();
+renderMiddleSection();
