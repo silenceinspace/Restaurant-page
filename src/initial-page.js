@@ -1,4 +1,4 @@
-export { renderTopSection, renderMiddleSection };
+export { renderTopSection, renderMiddleSection, renderFoofer };
 
 const divContent = document.body.querySelector("#content");
 
@@ -109,4 +109,20 @@ function renderMiddleSection() {
   addressBoldText.textContent =
     "Our Address: U Vodarny 10, 130 00 Prague 3 - Vinohrady";
   addressHomePage.append(addressBoldText);
+}
+
+function renderFoofer() {
+  const footer = document.createElement("footer");
+  footer.setAttribute("id", "footer");
+  divContent.append(footer);
+
+  const paragraph = document.createElement("p");
+  paragraph.classList.add("github-link");
+  footer.append(paragraph);
+
+  const link = document.createElement("a");
+  link.target = "_blank";
+  link.href = "https://github.com/silenceinspace";
+  link.textContent = "GitHub account";
+  paragraph.append(link);
 }
