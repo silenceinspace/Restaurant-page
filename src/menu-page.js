@@ -1,27 +1,38 @@
 export { renderMenu };
 
-// append more elements inside of the same parenthesis
 const divContent = document.body.querySelector("#content");
 
 function renderMenu() {
+  // create html elements in DOM
   const menuDiv = document.createElement("div");
-  menuDiv.classList.add("menu-section");
-  divContent.append(menuDiv);
-
   const currentPageTitle = document.createElement("h1");
-  currentPageTitle.textContent = "Our menu";
-  menuDiv.append(currentPageTitle);
-
-  //   soups
   const soupsDiv = document.createElement("div");
-  soupsDiv.classList.add("soups");
-  menuDiv.append(soupsDiv);
-
   const soupTitle = document.createElement("h2");
-  soupTitle.textContent = "Soups";
-  soupsDiv.append(soupTitle);
+  const mainCoursesDiv = document.createElement("div");
+  const dessertsDiv = document.createElement("div");
+  const dessertsTitle = document.createElement("h2");
+  const mainCoursesTitle = document.createElement("h2");
 
-  //   divs with soup options on the menu
+  // add class names to elements in DOM
+  menuDiv.classList.add("menu-section");
+  soupsDiv.classList.add("soups");
+  mainCoursesDiv.classList.add("main-courses");
+  dessertsDiv.classList.add("desserts");
+
+  // add text to elements in DOM
+  currentPageTitle.textContent = "Our menu";
+  soupTitle.textContent = "Soups";
+  mainCoursesTitle.textContent = "Ukrainian specialities";
+  dessertsTitle.textContent = "Desserts";
+
+  // append DOM elements other DOM elements
+  divContent.append(menuDiv);
+  soupsDiv.append(soupTitle);
+  mainCoursesDiv.append(mainCoursesTitle);
+  dessertsDiv.append(dessertsTitle);
+  menuDiv.append(currentPageTitle, soupsDiv, mainCoursesDiv, dessertsDiv);
+
+  // divs with soup options on the menu
   for (let i = 0; i < 2; i++) {
     const div = document.createElement("div");
     for (let j = 0; j < 1; j++) {
@@ -46,15 +57,7 @@ function renderMenu() {
     soupsDiv.append(div);
   }
 
-  //   main courses
-  const mainCoursesDiv = document.createElement("div");
-  mainCoursesDiv.classList.add("main-courses");
-  menuDiv.append(mainCoursesDiv);
-
-  const mainCoursesTitle = document.createElement("h2");
-  mainCoursesTitle.textContent = "Ukrainian specialities";
-  mainCoursesDiv.append(mainCoursesTitle);
-
+  // divs with main course optins on the menu
   for (let i = 0; i < 6; i++) {
     const div = document.createElement("div");
     const header = document.createElement("h3");
@@ -95,15 +98,7 @@ function renderMenu() {
     mainCoursesDiv.append(div);
   }
 
-  //   desserts
-  const dessertsDiv = document.createElement("div");
-  dessertsDiv.classList.add("desserts");
-  menuDiv.append(dessertsDiv);
-
-  const dessertsTitle = document.createElement("h2");
-  dessertsTitle.textContent = "Desserts";
-  dessertsDiv.append(dessertsTitle);
-
+  // divs with desserts options on the menu
   for (let i = 0; i < 2; i++) {
     const div = document.createElement("div");
     const header = document.createElement("h3");

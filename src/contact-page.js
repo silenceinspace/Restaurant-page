@@ -4,11 +4,13 @@ const divContent = document.body.querySelector("#content");
 
 function renderContacts() {
   const contactsDiv = document.createElement("div");
-  contactsDiv.classList.add("contact-section");
-  divContent.append(contactsDiv);
-
   const pageHeader = document.createElement("h1");
+
+  contactsDiv.classList.add("contact-section");
+
   pageHeader.textContent = "Our contacts";
+
+  divContent.append(contactsDiv);
   contactsDiv.append(pageHeader);
 
   for (let i = 0; i < 3; i++) {
