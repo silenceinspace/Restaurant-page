@@ -1,8 +1,6 @@
 export { renderContacts };
 
-const divContent = document.body.querySelector("#content");
-
-function renderContacts() {
+function renderContacts(div) {
   const contactsDiv = document.createElement("div");
   const pageHeader = document.createElement("h1");
 
@@ -10,7 +8,7 @@ function renderContacts() {
 
   pageHeader.textContent = "Our contacts";
 
-  divContent.append(contactsDiv);
+  div.append(contactsDiv);
   contactsDiv.append(pageHeader);
 
   for (let i = 0; i < 3; i++) {

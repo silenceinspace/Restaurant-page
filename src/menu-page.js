@@ -1,8 +1,6 @@
 export { renderMenu };
 
-const divContent = document.body.querySelector("#content");
-
-function renderMenu() {
+function renderMenu(div) {
   // create html elements in DOM
   const menuDiv = document.createElement("div");
   const currentPageTitle = document.createElement("h1");
@@ -26,7 +24,7 @@ function renderMenu() {
   dessertsTitle.textContent = "Desserts";
 
   // append DOM elements other DOM elements
-  divContent.append(menuDiv);
+  div.append(menuDiv);
   soupsDiv.append(soupTitle);
   mainCoursesDiv.append(mainCoursesTitle);
   dessertsDiv.append(dessertsTitle);

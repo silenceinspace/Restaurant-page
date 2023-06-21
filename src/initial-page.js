@@ -1,23 +1,48 @@
-export { renderTopSection, renderMiddleSection, renderFoofer };
-
-const divContent = document.body.querySelector("#content");
+export { renderHomePage, renderNonChangeableElements };
 
 // Section where tab browsering will work
-function renderTopSection() {
+function renderNonChangeableElements() {
   const divTopSection = document.createElement("div");
   divTopSection.classList.add("top-section");
-  divContent.append(divTopSection);
+  document.body.prepend(divTopSection);
 
   // generate 3 'tabs' for future tab browsering
   for (let i = 0; i < 3; i++) {
     const btn = document.createElement("button");
     btn.textContent = i === 0 ? "Home" : i === 1 ? "Menu" : "Contact";
+
+    switch (i) {
+      case 0:
+        btn.classList.add("Home-btn");
+        btn.disabled = true;
+        break;
+      case 1:
+        btn.classList.add("Menu-btn");
+        break;
+      case 2:
+        btn.classList.add("Contact-btn");
+        break;
+    }
     divTopSection.append(btn);
   }
+  // footer
+  const footer = document.createElement("footer");
+  const paragraph = document.createElement("p");
+  const link = document.createElement("a");
+
+  footer.setAttribute("id", "footer");
+  paragraph.classList.add("github-link");
+  link.target = "_blank";
+  link.href = "https://github.com/silenceinspace";
+  link.textContent = "GitHub account";
+
+  document.body.append(footer);
+  footer.append(paragraph);
+  paragraph.append(link);
 }
 
-// Section where all initial content will be shown
-function renderMiddleSection() {
+function renderHomePage(div) {
+  // Section where all initial content will be shown
   // create elements
   const divMiddleSection = document.createElement("div");
   const heroTitle = document.createElement("h1");
@@ -48,7 +73,7 @@ function renderMiddleSection() {
 
   // append elements
   addressHomePage.append(addressBoldText);
-  divContent.append(divMiddleSection);
+  div.append(divMiddleSection);
   tableWithSchedule.append(tableHeader);
   divMiddleSection.append(
     heroTitle,
@@ -114,21 +139,4 @@ function renderMiddleSection() {
     }
     tableWithSchedule.append(tableRow);
   }
-}
-
-// Footer section should be consistent on each new 'tab' as well as the section with buttons
-function renderFoofer() {
-  const footer = document.createElement("footer");
-  const paragraph = document.createElement("p");
-  const link = document.createElement("a");
-
-  footer.setAttribute("id", "footer");
-  paragraph.classList.add("github-link");
-  link.target = "_blank";
-  link.href = "https://github.com/silenceinspace";
-  link.textContent = "GitHub account";
-
-  divContent.append(footer);
-  footer.append(paragraph);
-  paragraph.append(link);
 }
