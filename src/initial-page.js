@@ -66,8 +66,9 @@ function renderHomePage(div) {
     "A place to return to for the best Ukrainian borsch in Prague!";
   restaurantStory.textContent =
     " Our cozy restaurant was opened back in 2021. As our main mission we saw the need to spread the word about the Ukrainian culture abroad and one of its biggest achievements - soup called borsch. Some people say it's just tasty soup, but we think there is more to it. The history, the symbol of true identity and the strongest nation.";
-  offerForVisiting.textContent =
-    "If that sounds interesting to you, please consider stopping by for a bowl of our special Ukrainian elixir!";
+  offerForVisiting.textContent = `If that sounds interesting to you, please consider stopping by for a bowl of our special Ukrainian elixir !
+    P.S. we also have other delicious Ukrainian tratidional food to try:D
+    `;
   tableHeader.textContent = "We are open:";
   addressBoldText.textContent =
     "Our Address: U Vodarny 10, 130 00 Prague 3 - Vinohrady";
@@ -101,6 +102,7 @@ function renderHomePage(div) {
   }
 
   // generate table with work hours for all 7 days
+  tableHeader.colSpan = "2";
   for (let i = 0; i < 7; i++) {
     const tableRow = document.createElement("tr");
     for (let j = 0; j < 2; j++) {

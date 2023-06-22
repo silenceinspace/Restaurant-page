@@ -25,32 +25,38 @@ function renderMenu(div) {
 
   // append DOM elements other DOM elements
   div.append(menuDiv);
-  soupsDiv.append(soupTitle);
-  mainCoursesDiv.append(mainCoursesTitle);
-  dessertsDiv.append(dessertsTitle);
-  menuDiv.append(currentPageTitle, soupsDiv, mainCoursesDiv, dessertsDiv);
+  menuDiv.append(
+    currentPageTitle,
+    soupTitle,
+    soupsDiv,
+    mainCoursesTitle,
+    mainCoursesDiv,
+    dessertsTitle,
+    dessertsDiv
+  );
 
   // divs with soup options on the menu
   for (let i = 0; i < 2; i++) {
     const div = document.createElement("div");
+    div.classList.add("dish-block");
     for (let j = 0; j < 1; j++) {
       const header = document.createElement("h3");
+      const para = document.createElement("p");
       const image = document.createElement("img");
-      image.height = "350";
-      image.width = "350";
 
       switch (i) {
         case 0:
-          header.textContent = "Beef borsch 0.4l - 99Czk";
+          header.textContent = "Beef borsch 0.4l";
+          para.textContent = "Price - 99Czk";
           image.src = "../src/images/menu/beef borsch.jpg";
           break;
         case 1:
-          header.textContent =
-            "Vegetarian borscht with spruce mushroom 0.4l - 99Czk";
+          header.textContent = "Vegetarian borscht with mushroom 0.4l";
+          para.textContent = "Price - 99Czk";
           image.src = "../src/images/menu/Vegeterian borsch.png";
           break;
       }
-      div.append(header, image);
+      div.append(header, para, image);
     }
     soupsDiv.append(div);
   }
@@ -58,38 +64,42 @@ function renderMenu(div) {
   // divs with main course optins on the menu
   for (let i = 0; i < 6; i++) {
     const div = document.createElement("div");
+    div.classList.add("dish-block");
+    const para = document.createElement("p");
     const header = document.createElement("h3");
     const img = document.createElement("img");
-    div.append(header, img);
-
-    img.height = "350";
-    img.width = "350";
+    div.append(header, para, img);
 
     switch (i) {
       case 0:
-        header.textContent = "Kyiv cutlet with mashed potatoes - 245Czk";
+        header.textContent = "Kyiv cutlet with mashed potatoes";
+        para.textContent = "Price - 245Czk";
         img.src = "../src/images/menu/Kyiv cutlet.png";
         break;
       case 1:
-        header.textContent = "Holubtsi (cabbage rolls with meat) - 205Czk";
+        header.textContent = "Holubtsi (cabbage rolls with meat)";
+        para.textContent = "Price - 205Czk";
         img.src = "../src/images/menu/Holubtsi.png";
         break;
       case 2:
         header.textContent =
-          "Nalysnyky stuffed with pork tongues and mushrooms served with asparagus - 180Czk";
+          "Nalysnyky stuffed with pork tongues";
+        para.textContent = "Price - 180Czk";
         img.src = "../src/images/menu/Nalysnyky.png";
         break;
       case 3:
-        header.textContent =
-          " Varenyky with potato filling (bags filled with potatoes) - 110Czk";
+        header.textContent = " Varenyky with potato filling";
+        para.textContent = "Price - 110Czk";
         img.src = "../src/images/menu/Varenyky.png";
         break;
       case 4:
-        header.textContent = "Deruns with sour cream and salad - 90Czk";
+        header.textContent = "Deruns with sour cream and salad";
+        para.textContent = "Price - 90Czk";
         img.src = "../src/images/menu/Deruns.png";
         break;
       case 5:
-        header.textContent = "Salo with borscht (two types of lard) - 70Czk";
+        header.textContent = "Salo with borscht (two types of lard)";
+        para.textContent = "Price - 70Czk";
         img.src = "../src/images/menu/Salo.png";
         break;
     }
@@ -99,21 +109,21 @@ function renderMenu(div) {
   // divs with desserts options on the menu
   for (let i = 0; i < 2; i++) {
     const div = document.createElement("div");
+    div.classList.add("dish-block");
+    const para = document.createElement("p");
     const header = document.createElement("h3");
     const image = document.createElement("img");
-    div.append(header, image);
-
-    // do it in CSS instead of JS?
-    image.height = "350";
-    image.width = "350";
+    div.append(header, para, image);
 
     switch (i) {
       case 0:
-        header.textContent = "Varenyky with sour cherries - 120Czk";
+        header.textContent = "Varenyky with sour cherries";
+        para.textContent = "Price - 120Czk";
         image.src = "../src/images/menu/Sweet varenyky.png";
         break;
       case 1:
-        header.textContent = "Cheesecakes (cottage cheese pancakes) - 115Czk";
+        header.textContent = "Cottage cheese pancakes";
+        para.textContent = "Price - 115Czk";
         image.src = "../src/images/menu/Cheesecakes.png";
         break;
     }
