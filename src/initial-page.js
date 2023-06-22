@@ -52,12 +52,13 @@ function renderHomePage(div) {
   const offerForVisiting = document.createElement("h3");
   const tableWithSchedule = document.createElement("table");
   const tableHeader = document.createElement("th");
-  const addressHomePage = document.createElement("div");
   const addressBoldText = document.createElement("h3");
+  const textSide = document.createElement("div");
 
   // classes
   divMiddleSection.classList.add("home-section");
   divRestaurantPhotos.classList.add("images");
+  textSide.classList.add("text");
 
   // text content
   heroTitle.textContent = "The Borsch";
@@ -67,22 +68,22 @@ function renderHomePage(div) {
     " Our cozy restaurant was opened back in 2021. As our main mission we saw the need to spread the word about the Ukrainian culture abroad and one of its biggest achievements - soup called borsch. Some people say it's just tasty soup, but we think there is more to it. The history, the symbol of true identity and the strongest nation.";
   offerForVisiting.textContent =
     "If that sounds interesting to you, please consider stopping by for a bowl of our special Ukrainian elixir!";
-  tableHeader.textContent = "We are open";
+  tableHeader.textContent = "We are open:";
   addressBoldText.textContent =
     "Our Address: U Vodarny 10, 130 00 Prague 3 - Vinohrady";
 
   // append elements
-  addressHomePage.append(addressBoldText);
   div.append(divMiddleSection);
   tableWithSchedule.append(tableHeader);
-  divMiddleSection.append(
+  divMiddleSection.append(textSide, divRestaurantPhotos);
+
+  textSide.append(
     heroTitle,
-    divRestaurantPhotos,
     shortDescription,
     restaurantStory,
     offerForVisiting,
     tableWithSchedule,
-    addressHomePage
+    addressBoldText
   );
 
   // img elements to show the restaurant's pictures
