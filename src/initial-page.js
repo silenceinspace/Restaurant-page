@@ -1,4 +1,8 @@
 export { renderHomePage, renderNonChangeableElements };
+import exterior from "../src/images/exterior.jpeg";
+import interior from "../src/images/interior.jpg";
+import counter from "../src/images/counter.jpg";
+import favicon from "../src/images/logo.jpg";
 
 // Section where tab browsering will work
 function renderNonChangeableElements() {
@@ -90,12 +94,7 @@ function renderHomePage(div) {
   // img elements to show the restaurant's pictures
   for (let i = 0; i < 3; i++) {
     const img = document.createElement("img");
-    img.src =
-      i === 0
-        ? "../src/images/exterior.jpeg"
-        : i === 1
-        ? "../src/images/interior.jpg"
-        : "../src/images/counter.jpg";
+    img.src = i === 0 ? exterior : i === 1 ? interior : counter;
     img.height = "350";
     img.width = "350";
     divRestaurantPhotos.append(img);
