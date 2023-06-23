@@ -1,16 +1,17 @@
 export { renderHomePage, renderNonChangeableElements };
-import exterior from "../src/images/exterior.jpeg";
-import interior from "../src/images/interior.jpg";
-import counter from "../src/images/counter.jpg";
+import imageOne from "../src/images/exterior.jpeg";
+import imageTwo from "../src/images/interior.jpg";
+import imageThree from "../src/images/counter.jpg";
+// Load a favicon for a page to use in an index html file
 import favicon from "../src/images/logo.jpg";
 
-// Section where tab browsering will work
+// Section where tab browsering works
 function renderNonChangeableElements() {
-  const divTopSection = document.createElement("div");
-  divTopSection.classList.add("top-section");
-  document.body.prepend(divTopSection);
+  const div = document.createElement("div");
+  div.classList.add("top-section");
+  document.body.prepend(div);
 
-  // generate 3 'tabs' for future tab browsering
+  // Create 3 'tabs' for tab browsering
   for (let i = 0; i < 3; i++) {
     const btn = document.createElement("button");
     btn.textContent = i === 0 ? "Home" : i === 1 ? "Menu" : "Contact";
@@ -27,9 +28,10 @@ function renderNonChangeableElements() {
         btn.classList.add("Contact-btn");
         break;
     }
-    divTopSection.append(btn);
+    div.append(btn);
   }
-  // footer
+
+  // Footer for all three tabs
   const footer = document.createElement("footer");
   const paragraph = document.createElement("p");
   const link = document.createElement("a");
@@ -45,62 +47,69 @@ function renderNonChangeableElements() {
   paragraph.append(link);
 }
 
+// Section where all initial content is shown
 function renderHomePage(div) {
-  // Section where all initial content will be shown
-  // create elements
-  const divMiddleSection = document.createElement("div");
-  const heroTitle = document.createElement("h1");
-  const divRestaurantPhotos = document.createElement("div");
-  const shortDescription = document.createElement("h3");
-  const restaurantStory = document.createElement("p");
-  const offerForVisiting = document.createElement("h3");
+  // Create elements
+  const middleSectionDiv = document.createElement("div");
+  const restaurantImagesDiv = document.createElement("div");
+  const textSideDiv = document.createElement("div");
+  const heroTitleHeader = document.createElement("h1");
+  const additionToHeroTitleHeader = document.createElement("h3");
+  const restaurantStoryPara = document.createElement("p");
+  const catchyTextHeader = document.createElement("h3");
   const tableWithSchedule = document.createElement("table");
   const tableHeader = document.createElement("th");
-  const addressBoldText = document.createElement("h3");
-  const textSide = document.createElement("div");
+  const addressInfoHeader = document.createElement("h3");
 
-  // classes
-  divMiddleSection.classList.add("home-section");
-  divRestaurantPhotos.classList.add("images");
-  textSide.classList.add("text");
+  // Classes
+  middleSectionDiv.classList.add("home-section");
+  textSideDiv.classList.add("text");
+  restaurantImagesDiv.classList.add("images");
 
-  // text content
-  heroTitle.textContent = "The Borsch";
-  shortDescription.textContent =
+  // Text content
+  heroTitleHeader.textContent = "The Borsch";
+  additionToHeroTitleHeader.textContent =
     "A place to return to for the best Ukrainian borsch in Prague!";
-  restaurantStory.textContent =
+  restaurantStoryPara.textContent =
     " Our cozy restaurant was opened back in 2021. As our main mission we saw the need to spread the word about the Ukrainian culture abroad and one of its biggest achievements - soup called borsch. Some people say it's just tasty soup, but we think there is more to it. The history, the symbol of true identity and the strongest nation.";
-  offerForVisiting.textContent = `If that sounds interesting to you, please consider stopping by for a bowl of our special Ukrainian elixir !
+  catchyTextHeader.textContent = `If that sounds interesting to you, please consider stopping by for a bowl of our special Ukrainian elixir !
     P.S. we also have other delicious Ukrainian tratidional food to try:D
     `;
   tableHeader.textContent = "We are open:";
-  addressBoldText.textContent =
+  addressInfoHeader.textContent =
     "Our Address: U Vodarny 10, 130 00 Prague 3 - Vinohrady";
 
-  // append elements
-  div.append(divMiddleSection);
+  // Append elements
+  div.append(middleSectionDiv);
+  middleSectionDiv.append(textSideDiv, restaurantImagesDiv);
   tableWithSchedule.append(tableHeader);
-  divMiddleSection.append(textSide, divRestaurantPhotos);
 
-  textSide.append(
-    heroTitle,
-    shortDescription,
-    restaurantStory,
-    offerForVisiting,
+  textSideDiv.append(
+    heroTitleHeader,
+    additionToHeroTitleHeader,
+    restaurantStoryPara,
+    catchyTextHeader,
     tableWithSchedule,
-    addressBoldText
+    addressInfoHeader
   );
 
-  // img elements to show the restaurant's pictures
+  // Create img elements to show the restaurant's pictures
   for (let i = 0; i < 3; i++) {
     const img = document.createElement("img");
-    img.src = i === 0 ? exterior : i === 1 ? interior : counter;
+    // Images are loaded through webpack at the top
+    img.src = i === 0 ? imageOne : i === 1 ? imageTwo : imageThree;
+    img.alt =
+      i === 0
+        ? "Restaurant's exterior"
+        : i === 1
+        ? "Restaurant's interior"
+        : "Bar counter in the restaurant";
     img.height = "350";
     img.width = "350";
-    divRestaurantPhotos.append(img);
+    restaurantImagesDiv.append(img);
   }
 
-  // generate table with work hours for all 7 days
+  // Create a table with work hours for all 7 days
   tableHeader.colSpan = "2";
   for (let i = 0; i < 7; i++) {
     const tableRow = document.createElement("tr");

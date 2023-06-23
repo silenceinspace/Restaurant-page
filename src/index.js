@@ -1,13 +1,12 @@
 import { renderHomePage, renderNonChangeableElements } from "./initial-page";
 import { renderMenu } from "./menu-page";
 import { renderContacts } from "./contact-page";
-// load css with webpack
+// Load css with webpack
 import "./style.css";
 
 const divContent = document.body.querySelector("#content");
-
+// Render initial page
 renderNonChangeableElements();
-// render initial page
 renderHomePage(divContent);
 
 function makeCurrentTabUnckickable(firstTab, secondTab, thirdTab) {
@@ -37,13 +36,3 @@ contactTab.addEventListener("click", () => {
   makeCurrentTabUnckickable(false, false, true);
 });
 
-
-
-
-
-
-
-
-// Some things to try in the project!!!
-// import images through webpack??
-// import font through webpack
